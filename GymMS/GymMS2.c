@@ -527,7 +527,6 @@ void memberManagementMenu(MemberList *memberList, int *nextMemberID) {
 
     switch(choice) {
         case 1: {
-            // Add member logic here
             Member newMember;
             newMember.memberID = (*nextMemberID)++;
 
@@ -727,16 +726,13 @@ void memberManagementMenu(MemberList *memberList, int *nextMemberID) {
             break;
         }
         case 2:
-            // List members logic here
             listMembers(memberList);
             break;
         case 3: {
-            // Find member logic here
             searchMembers(memberList);
             break;
         }
         case 4: {
-            // Update member details logic here
             printf("Enter member ID to update: ");
             int updateID;
             if (scanf("%d", &updateID) != 1) {
@@ -749,8 +745,6 @@ void memberManagementMenu(MemberList *memberList, int *nextMemberID) {
             Member *memberToUpdate = findMemberByID(memberList, updateID);
 
             if (memberToUpdate != NULL) {
-                // Implement update logic here
-                // For example, prompt which field to update
                 int updateChoice;
                 printf("Which field do you want to update?\n");
                 printf("1. First Name\n");
@@ -916,7 +910,7 @@ void memberManagementMenu(MemberList *memberList, int *nextMemberID) {
                                 while (getchar() != '\n');
                                 continue;
                             }
-                            getchar(); // consume newline
+                            getchar();
 
                             if (relationChoice >=1 && relationChoice <=6) {
                                 break;
@@ -939,7 +933,7 @@ void memberManagementMenu(MemberList *memberList, int *nextMemberID) {
                             }
                             getchar();
 
-                            // Validate date of birth
+                            // Validate dob
                             Date currentDate = getCurrentDate();
 
                             if (!isValidDate(memberToUpdate->dob.day, memberToUpdate->dob.month, memberToUpdate->dob.year)) {
@@ -967,7 +961,6 @@ void memberManagementMenu(MemberList *memberList, int *nextMemberID) {
             break;
         }
         case 5: {
-            // Delete member logic here
             printf("Enter member ID to delete: ");
             int deleteID;
             if (scanf("%d", &deleteID) != 1) {
@@ -1234,11 +1227,10 @@ void reportsMenu(EquipmentList *equipmentList) {
             while (getchar() != '\n');
             continue;
         }
-        getchar();  // Consume the newline character left in the buffer
+        getchar(); 
 
         switch(choice) {
             case 1: {
-                // Generate report logic here
                 Report report;
                 generateReport(equipmentList, &report);
                 break;
