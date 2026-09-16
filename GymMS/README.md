@@ -1,5 +1,7 @@
 # Gym Management System
 
+[![C Tests](https://github.com/aleksi613/gym-management-system/actions/workflows/c-tests.yml/badge.svg)](https://github.com/aleksi613/gym-management-system/actions/workflows/c-tests.yml)
+
 A console-based management system written in C for maintaining gym member records, tracking equipment condition, and generating equipment reports. Records are persisted between sessions with local binary data files.
 
 ## Features
@@ -32,6 +34,8 @@ GymMS/
 │   ├── member_menu.c     # Member console workflow
 │   ├── reports_menu.c    # Report console workflow
 │   └── storage.c         # Binary file persistence
+├── tests/
+│   └── test_runner.c     # Automated unit-test suite
 ├── equipment.dat         # Persisted equipment records
 ├── members.dat           # Persisted member records
 └── Makefile
@@ -68,3 +72,15 @@ Keep `members.dat` and `equipment.dat` in the working directory when launching t
 ```
 
 The program saves both data files when you choose **Exit** from the main menu.
+
+## Tests
+
+Run the automated unit-test suite with:
+
+```sh
+make test
+```
+
+The suite verifies date validation and age calculations, dynamic member and equipment collections, equipment report totals, missing-file initialization, and binary storage round trips.
+
+GitHub Actions also builds the application and runs the suite automatically on every push and pull request.

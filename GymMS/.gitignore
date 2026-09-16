@@ -1,2 +1,6 @@
 *.o
 build/
+/GymMS2
+/gymms_tests
+/gymms_tests.exe
+/tests/*.dat
